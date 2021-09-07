@@ -3,38 +3,39 @@
 
 ## Part 1
 
-### 1. Get the Hello World web app working
+### 1. Review the Hello World web app, make sure it's working
 
-a. Watch Video 1, Hello World for Lab2
-
-b. Develop your own Hello World web app using IntelliJ and TomEE. Be sure to fix the TomEE settings in Run/Edit Configurations and File/Project Structure as described in the video.
+Review the directions for installing the Hello World web app using TomEE9, Jakarta, and Java16 from Lab 1. Those directions are repeated in abbreviated form below.
 
 ### 2. Get the InterestingPicture web app working
 
-a. Watch Video 2, Interesting Picture for Lab 2
+a. Watch the Video, Interesting Picture for Lab 2, on Canvas
 
 b. Download the files InterestingPictureModel.java, InterestingPictureServlet.java, prompt.jsp, response.jsp, and web.xml (see below for final destinations) from:
 
 https://github.com/CMU-Heinz-95702/Lab2-InterestingPicture
 
-c. Create a new web project in IntelliJ named InterestingPicture. Fix the TomEE settings as before, but with this small change:
-- in Run/Edit Configurations, Deployment tab, make the Application Context just "/"
+c. Create a new web project in IntelliJ named InterestingPicture. If necessary, change the directory to put this project in a folder of your choosing. The project should be a Java Enterprise Web application project using TomEE 9 (note that it shows up as v. 10) using Java 16, Maven, and JUnit (which won't be needed); change the Group to ds (that's the package name); the name of the Artifact should be "InterestingPicture". Make sure to choose Jakarta EE 9 (*not* Java EE 8) and Servlet 5.0.0.
 
-d. Create a new package "ds" and copy InterestingPictureModel.java and InterestingPictureServlet.java into it.
+d. Expand (in the Project window) src -> main -> java. Delete the HelloServlet.java file (right-click and choose Delete); also delete the ds.InterestingPicture package. Right-click on java and choose New->Package to create package ds. Then copy InterestingPictureModel.java and InterestingPictureServlet.java (from a Finder or FileExplorer window) and paste into package ds (right-click on ds and choose Paste).
 
-e. Copy prompt.jsp and response.jsp into the web folder, and web.xml into the WEB-INF folder (choose "overwrite").
+e. Similarly, copy prompt.jsp and response.jsp into the webapp folder, and web.xml into the WEB-INF folder (choose "overwrite" because there's already a web.xml file there). Delete the index.jsp file from the webapp folder.
 
-f. Click on the green arrow or choose Run/Run
+f. Choose the Run-Edit Configurations. Make sure TomEE 10 is showing. Click the Deployment tab; near the bottom (you may have to scroll down to see it), type
+
+/InterestingPicture-1.0-SNAPSHOT
+
+into the Application Context text field. Click Apply and OK. Finally, on the green triangle or choose Run/Run to build and run the program.
 
 g. Make sure the app displays a prompt; choose a noun (like "cat"), click "Click Here", and ensure that a picture of a cat is displayed.
 
-### :checkered_flag: **Checkpoint: show the working InterestingPicture web app to your TA.** 
+h. Try out a few other search terms. When finished, click the red square at the top right to quit the program.
 
 ## Part 2
 
 ### 3. Practice debugging – Using the debugger to explore how InterestingPicture works.
 
-a. Put a breakpoint at the InterestingPictureModel::doFlickrSearch method before the searchTag is encoded at line 39.
+a. Put a breakpoint at the InterestingPictureModel::doFlickrSearch method before the searchTag is encoded at line 40 (click in the margin next to 40 - a red dot should appear).
 
 b. On the Run menu, choose Debug (or click the green bug next to the arrow).
 
@@ -42,9 +43,9 @@ c. In the browser, search for the word zzzz8888
 
 d. In the IntelliJ debugging variables window, confirm that the value of searchTag is what you typed in the browser, zzzz8888.
 
-e. Right-click on that value and choose Set Value. Change the value of searchTag to peach
+e. Right-click on that value and choose View/Edit. Change the value of searchTag to "peach"
 
-f. On the Run menu, choose Resume Program
+f. On the Run menu, choose Debugging Actions, and Resume Program
 
 g. In the browser, confirm the response from the web app has the message "Here is an interesting  picture of a zzzz8888" but shows a picture of a peach.
 
@@ -75,18 +76,10 @@ You *must* use a loop for this part; do not simply replicate the image ten times
 ### Note: this is not a good MVC separation of concerns, it's just an exercise in writing JSP.
 
 
-### :checkered_flag: **To receive full lab credit** (besides the checkpoint credit): show the following to your TA: (before Monday's lecture)
-1. HelloWorld servlet working (Step 1).
-2. Response to "Here is an interesting picture of a zzzz8888" and a picture of a peach (step 3g).
-3. Why is the loop use and what format is the str data? (steps 4a and 4b).
-4. The string in the response file that is used to create pictureURL (step5b).
-5. The working Easter Egg (step 6a).
-
 # Lab versus Project Collaboration Rules
 ## Lab Rules:
 - Okay to talk to other students
 - Okay to work together and share hints/solutions. Please do!
-- Every student must demo to a TA individually
 
 ## Project Rules:
 - No talking to other students about code
@@ -94,4 +87,3 @@ You *must* use a loop for this part; do not simply replicate the image ten times
 - No discussing or showing your code to others
 - Each student *must* work alone
 - Sharing code is cheating and may result in failing the course.
-
