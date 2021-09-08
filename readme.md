@@ -60,7 +60,7 @@ b. Put a breakpoint in the loop and examine the value of str with each iteration
 
 a. After the fetch loop completes, examine the value of response in the debugging window by clicking on View at the right-hand side of the box. Right-click and choose Copy Value; this copies this long string to the clipboard.
 
-b. Open a text editor and paste this string. Then search for the string used by response.indexOf().
+b. Open a text editor and paste this string. Then search for the string **used by** response.indexOf() (that is, don't search for "repsonse.indexOf()").
 
 c. Copy the string into a new browser tab to confirm that it is a picture url.
 
@@ -69,7 +69,9 @@ c. Copy the string into a new browser tab to confirm that it is a picture url.
 
 a. In the result.jsp file, if the search word from Flickr is "Andy", then do not display the Flickr image. Instead, display the following image of Andrew Carnegie ten times:
 
-http://www.andrew.cmu.edu/course/95-702/Images/AndrewCarnegie.jpg
+~~http://www.andrew.cmu.edu/course/95-702/Images/AndrewCarnegie.jpg~~
+
+https://en.wikipedia.org/wiki/Andrew_Carnegie#/media/File:Andrew_Carnegie,_three-quarter_length_portrait,_seated,_facing_slightly_left,_1913-cropped(b).jpg
 
 You *must* use a loop for this part; do not simply replicate the image ten times.
 
