@@ -1,6 +1,8 @@
 # 95-702 Distributed Systems    				
 # Lab 2 – Interesting Picture
 
+Lab 2 is due before lecture on Monday: 1:25 PM EST 31-Jan-2022. The 1/4 point checkpoint is due to your specific TA. The 3/4 point checkpoint can be shown to any TA. See the two checkered flags below to see what needs to be submitted.
+
 ## Part 1
 
 ### 1. Review the Hello World web app, make sure it's working
@@ -9,9 +11,9 @@ Review the directions for installing the Hello World web app using TomEE9, Jakar
 
 ### 2. Get the InterestingPicture web app working
 
-a. Watch the Video, Interesting Picture for Lab 2, on Canvas
+a. Watch the Video, Interesting Picture for Lab 2, on Canvas.
 
-b. Download the files InterestingPictureModel.java, InterestingPictureServlet.java, prompt.jsp, response.jsp, and web.xml (see below for final destinations) from:
+b. Download the files InterestingPictureModel.java, InterestingPictureServlet.java, prompt.jsp, response.jsp, and web.xml (see below for where to copy these files into) from:
 
 https://github.com/CMU-Heinz-95702/Lab2-InterestingPicture
 
@@ -30,6 +32,8 @@ into the Application Context text field. Click Apply and OK. Finally, on the gre
 g. Make sure the app displays a prompt; choose a noun (like "cat"), click "Click Here", and ensure that a picture of a cat is displayed.
 
 h. Try out a few other search terms. When finished, click the red square at the top right to quit the program.
+
+### :checkered_flag: **Checkpoint: show the working InterestingPicture web app to your TA.**
 
 ## Part 2
 
@@ -58,9 +62,9 @@ b. Put a breakpoint in the loop and examine the value of str with each iteration
 
 ### 5. Investigate how screen scraping works.
 
-a. After the fetch loop completes, examine the value of response in the debugging window by clicking on View at the right-hand side of the box. Right-click and choose Copy Value; this copies this long string to the clipboard.
+a. After the fetch loop completes, examine the value of **response** in the debugging window by clicking on View at the right-hand side of the box. Right-click and choose Copy Value; this copies this long string to the clipboard. Make sure you're doing this *after* the loop finishes, so you have all of the stuff stored in response (i.e., not where you put the breakpoint in part b).
 
-b. Open a text editor and paste this string. Then search for the string **used by** response.indexOf() (that is, don't search for "repsonse.indexOf()").
+b. Open a text editor and paste this string. Then search for the string used by response.indexOf() - that is, the parameter to indexOf().
 
 c. Copy the string into a new browser tab to confirm that it is a picture url.
 
@@ -69,14 +73,18 @@ c. Copy the string into a new browser tab to confirm that it is a picture url.
 
 a. In the result.jsp file, if the search word from Flickr is "Andy", then do not display the Flickr image. Instead, display the following image of Andrew Carnegie ten times:
 
-~~http://www.andrew.cmu.edu/course/95-702/Images/AndrewCarnegie.jpg~~
-
 https://en.wikipedia.org/wiki/Andrew_Carnegie#/media/File:Andrew_Carnegie,_three-quarter_length_portrait,_seated,_facing_slightly_left,_1913-cropped(b).jpg
 
-You *must* use a loop for this part; do not simply replicate the image ten times.
+You *must* use an embedded Java loop for this part; do not simply replicate the image ten times.
 
-### Note: this is not a good MVC separation of concerns, it's just an exercise in writing JSP.
+### Note: this is not a good MVC separation of concerns, it's just an exercise in writing JSP. You should think about why that is!
 
+### :checkered_flag: **To receive full lab credit** (besides the checkpoint credit): show the following to your TA: (before Monday's lecture)
+1. HelloWorld servlet working (Step 1).
+2. Response to "Here is an interesting picture of a zzzz8888" and a picture of a peach (step 3g).
+3. Why is the loop used and what format is the str data? (steps 4a and 4b).
+4. The string in the response file that is used to create pictureURL (step5b).
+5. The working Easter Egg (step 6a).
 
 # Lab versus Project Collaboration Rules
 ## Lab Rules:
