@@ -50,8 +50,9 @@ public class InterestingPictureModel {
         // Fetch the page
         response = fetch(flickrURL);
 
-        System.out.println("tag = " + searchTag);
-        System.out.println("url = " + flickrURL);
+        // Debugging:
+        //System.out.println("tag = " + searchTag);
+        //System.out.println("url = " + flickrURL);
         //System.out.println(response);
 
         /*
@@ -68,33 +69,28 @@ public class InterestingPictureModel {
          * First do a String search that gets me close to the picture URL target
          */
 
-        //int cutLeft = response.indexOf("background-image: url(");
         int cutLeft = response.indexOf("main search-photos-results");
         cutLeft = response.indexOf("photo-list-photo-container", cutLeft);
         String s = "loading=\"lazy\" src=";
         cutLeft = response.indexOf("loading=\"lazy", cutLeft) + s.length() + 1;
-        //cutLeft = response.indexOf("src=", cutLeft) + 4;
 
         // If not found, then no such photo is available.
         if (cutLeft == -1) {
             System.out.println("pictureURL= null");
             return (String) null;
         }
-        // Skip past this string. 
-        //cutLeft += "background-image: url(".length();
-        // The next character would be the // which in a URL separates the 
-        // protocol from the server (i.e. https://foo.com)
 
-        // Look for the close parenthesis
-        //int cutRight = response.indexOf(")", cutLeft);
+        // Look for the jpg extension
         int cutRight = response.indexOf("jpg", cutLeft) + 3;
-        System.out.println(response.substring(cutLeft, cutRight));
+        // Debugging:
+        //System.out.println(response.substring(cutLeft, cutRight));
 
         // Now snip out the part from positions cutLeft to cutRight
         // and prepend the protocol (i.e. https).
         String pictureURL = "https:"+response.substring(cutLeft, cutRight);
         pictureURL = interestingPictureSize(pictureURL, picSize);
-        System.out.println("pictureURL= " + pictureURL);
+        // Debugging:
+        //System.out.println("pictureURL= " + pictureURL);
         return pictureURL;
     }
 
