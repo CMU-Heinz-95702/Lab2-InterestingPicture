@@ -1,7 +1,7 @@
 # 95-702 Distributed Systems    				
 # Lab 2 – Interesting Picture
 
-Lab 2 is due before lecture on Monday: 1:25 PM EST 31-Jan-2022. The 1/4 point checkpoint is due to your specific TA. The 3/4 point checkpoint can be shown to any TA. See the two checkered flags below to see what needs to be submitted.
+Lab 2 is due before lecture on Monday: 1:25 PM EST 12-Sept-2022. The 1/4 point checkpoint is due to your specific TA. The 3/4 point checkpoint can be shown to any TA. See the two checkered flags below to see what needs to be submitted.
 
 ## Part 1
 
