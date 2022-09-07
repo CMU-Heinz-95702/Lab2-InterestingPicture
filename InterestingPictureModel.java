@@ -50,11 +50,6 @@ public class InterestingPictureModel {
         // Fetch the page
         response = fetch(flickrURL);
 
-        // Debugging:
-        //System.out.println("tag = " + searchTag);
-        //System.out.println("url = " + flickrURL);
-        //System.out.println(response);
-
         /*
          * Search the page to find the picture URL
          *
@@ -69,6 +64,7 @@ public class InterestingPictureModel {
          * First do a String search that gets me close to the picture URL target
          */
 
+        // Several small steps
         int cutLeft = response.indexOf("main search-photos-results");
         cutLeft = response.indexOf("photo-list-photo-container", cutLeft);
         String s = "loading=\"lazy\" src=";
@@ -82,15 +78,11 @@ public class InterestingPictureModel {
 
         // Look for the jpg extension
         int cutRight = response.indexOf("jpg", cutLeft) + 3;
-        // Debugging:
-        //System.out.println(response.substring(cutLeft, cutRight));
 
         // Now snip out the part from positions cutLeft to cutRight
         // and prepend the protocol (i.e. https).
         String pictureURL = "https:"+response.substring(cutLeft, cutRight);
         pictureURL = interestingPictureSize(pictureURL, picSize);
-        // Debugging:
-        //System.out.println("pictureURL= " + pictureURL);
         return pictureURL;
     }
 
