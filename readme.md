@@ -1,13 +1,16 @@
 # 95-702 Distributed Systems    				
 # Lab 2 – Interesting Picture
 
-Lab 2 is due before lecture on Monday: 1:25 PM EST 12-Sept-2022. The 1/4 point checkpoint is due to your specific TA. The 3/4 point checkpoint can be shown to any TA. See the two checkered flags below to see what needs to be submitted.
+Lab 2 is due before lecture on Monday: 2:00 PM EST 30-Jan-2023. The 1/4 point checkpoint is due to your specific TA if you finish it during lab. Both the 1/4 and the 3/4 point checkpoint can be shown to any TA before the deadline. See the two checkered flags below to see what needs to be submitted.
+
+(Note: starting with Lab 3, the 1/4 point will be due by the end of lab and the 3/4 point will be due by the following Monday at 2:00.)
+
 
 ## Part 1
 
 ### 1. Review the Hello World web app, make sure it's working
 
-Review the directions for installing the Hello World web app using TomEE9, Jakarta, and Java16 from Lab 1. Those directions are repeated in abbreviated form below.
+Review the directions for installing the Hello World web app using TomEE9, Jakarta, and Java17 from Lab 1. Those directions are repeated in abbreviated form below.
 
 ### 2. Get the InterestingPicture web app working
 
@@ -17,7 +20,7 @@ b. Download the files InterestingPictureModel.java, InterestingPictureServlet.ja
 
 https://github.com/CMU-Heinz-95702/Lab2-InterestingPicture
 
-c. Create a new web project in IntelliJ named InterestingPicture. If necessary, change the directory to put this project in a folder of your choosing. The project should be a Java Enterprise Web application project using TomEE 9 (note that it shows up as v. 10) using Java 16, Maven, and JUnit (which won't be needed); change the Group to ds (that's the package name); the name of the Artifact should be "InterestingPicture". Make sure to choose Jakarta EE 9 (*not* Java EE 8) and Servlet 5.0.0.
+c. Create a new web project in IntelliJ named InterestingPicture. If necessary, change the directory to put this project in a folder of your choosing. The project should be a Java Enterprise Web application project using TomEE 9 (note that it shows up as v. 10) using Java 16, Maven, and JUnit (which won't be needed); change the Group to ds (that's the package name); the name of the Artifact should be "InterestingPicture". Make sure to choose Jakarta EE 9 (*not* Java EE 8) and Servlet 5.0.0. The Jakarta choice is easy to miss; it may default to Java EE 8; failing to get this setting correct will cause the application to fail when you run it, so get this right!
 
 d. Expand (in the Project window) src -> main -> java. Delete the HelloServlet.java file (right-click and choose Delete); also delete the ds.InterestingPicture package. Right-click on java and choose New->Package to create package ds. Then copy InterestingPictureModel.java and InterestingPictureServlet.java (from a Finder or FileExplorer window) and paste into package ds (right-click on ds and choose Paste).
 
