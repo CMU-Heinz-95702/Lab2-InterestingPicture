@@ -1,16 +1,13 @@
 # 95-702 Distributed Systems    				
 # Lab 2 – Interesting Picture
 
-Lab 2 is due before lecture on Monday: 2:00 PM EST 30-Jan-2023. The 1/4 point checkpoint is due to your specific TA if you finish it during lab. Both the 1/4 and the 3/4 point checkpoint can be shown to any TA before the deadline. See the two checkered flags below to see what needs to be submitted.
-
-(Note: starting with Lab 3, the 1/4 point will be due by the end of lab and the 3/4 point will be due by the following Monday at 2:00.)
-
+The 1/4 point checkpoint is due to your specific TA before the end of the lab session. The 3/4 point checkpoint can be shown to any TA, due before lecture on Monday: 2:00 PM EST 11-Sept-20223. See the two checkered flags below to see what needs to be submitted.
 
 ## Part 1
 
 ### 1. Review the Hello World web app, make sure it's working
 
-Review the directions for installing the Hello World web app using TomEE9, Jakarta, and Java17 from Lab 1. Those directions are repeated in abbreviated form below.
+Review the directions for installing the Hello World web app using TomEE10, Jakarta, and Java17 from Lab 1. Those directions are repeated in abbreviated form below.
 
 ### 2. Get the InterestingPicture web app working
 
@@ -20,13 +17,13 @@ b. Download the files InterestingPictureModel.java, InterestingPictureServlet.ja
 
 https://github.com/CMU-Heinz-95702/Lab2-InterestingPicture
 
-c. Create a new web project in IntelliJ named InterestingPicture. If necessary, change the directory to put this project in a folder of your choosing. The project should be a Java Enterprise Web application project using TomEE 9 (note that it shows up as v. 10) using Java 16, Maven, and JUnit (which won't be needed); change the Group to ds (that's the package name); the name of the Artifact should be "InterestingPicture". Make sure to choose Jakarta EE 9 (*not* Java EE 8) and Servlet 5.0.0. The Jakarta choice is easy to miss; it may default to Java EE 8; failing to get this setting correct will cause the application to fail when you run it, so get this right!
+c. Create a new web project in IntelliJ named InterestingPicture. If necessary, change the directory to put this project in a folder of your choosing. The project should be a Jakarata EE (formerly Java Enterprise Web) application project using TomEE 9 (note that it might show up as v. 10) using JDK 17 (or higher, if that's what you've installed), Java (not Kotlin or Groovy), Maven, and JUnit (which won't be needed); change the Group to ds (that's the package name); the name of the Artifact should be "InterestingPicture". Make sure to choose Jakarta EE 10 (*not* Java EE 8) and Servlet 6.0.0. The Jakarta choice is easy to miss; it may default to Java EE 8; failing to get this setting correct will cause the application to fail when you run it, so get this right!
 
 d. Expand (in the Project window) src -> main -> java. Delete the HelloServlet.java file (right-click and choose Delete); also delete the ds.InterestingPicture package. Right-click on java and choose New->Package to create package ds. Then copy InterestingPictureModel.java and InterestingPictureServlet.java (from a Finder or FileExplorer window) and paste into package ds (right-click on ds and choose Paste).
 
-e. Similarly, copy prompt.jsp and response.jsp into the webapp folder, and web.xml into the WEB-INF folder (choose "overwrite" because there's already a web.xml file there). Delete the index.jsp file from the webapp folder.
+e. Similarly, copy prompt.jsp and result.jsp into the webapp folder, and web.xml into the WEB-INF folder (choose "overwrite" because there's already a web.xml file there). Delete the index.jsp file from the webapp folder.
 
-f. Choose the Run-Edit Configurations. Make sure TomEE 10 is showing. Click the Deployment tab; near the bottom (you may have to scroll down to see it), type
+f. Choose the Run-Edit Configurations. Make sure TomEE 10 is showing. Click the Deployment tab; near the bottom (you may have to scroll down to see it), copy
 
 /InterestingPicture-1.0-SNAPSHOT
 
@@ -44,30 +41,32 @@ h. Try out a few other search terms. When finished, click the red square at the 
 
 a. Put a breakpoint at the InterestingPictureModel::doFlickrSearch method before the searchTag is encoded at line 40 (click in the margin next to 40 - a red dot should appear).
 
-b. On the Run menu, choose Debug (or click the green bug next to the arrow).
+b. On the Run menu, choose Debug (or click the green bug next to the arrow) - don't use the green triangle: run in Debug mode so that it stops at line 40.
 
-c. In the browser, search for the word zzzz8888
+c. In the browser, enter the word zzzz8888 in the search box and click Submit.
 
 d. In the IntelliJ debugging variables window, confirm that the value of searchTag is what you typed in the browser, zzzz8888.
 
-e. Right-click on that value and choose View/Edit. Change the value of searchTag to "peach"
+e. Right-click on that value and choose View/Edit Text. Copy this word without the quotes: "peach". In the View/Edit box, highlight the value of searchTag and copy in"peach", then click OK.
 
 f. On the Run menu, choose Debugging Actions, and Resume Program
 
-g. In the browser, confirm the response from the web app has the message "Here is an interesting  picture of a zzzz8888" but shows a picture of a peach.
+g. In the browser, confirm the response from the web app has the message "Here is an interesting  picture of a zzzz8888" but shows a picture of a peach. Why did this happen?
 
-### 4. In the model class, study how the fetch method words.
+### 4. In the model class, study how the fetch( ) method works.
 
-a. Why is a while loop used?
+a. Why is a while loop used - what is the body of the loop doing?
 
-b. Put a breakpoint in the loop and examine the value of str with each iteration. What is the format of the information you are seeing?
+b. Put a breakpoint in the loop and examine the value of str with each iteration (use the Resume Program choice again, several times). What is the format of the information you are seeing?
+
+c. Put a breakpoint on the line "in.close( )"; remove the breakpoint in the loop. Resume Program again.
 
 
 ### 5. Investigate how screen scraping works.
 
-a. After the fetch loop completes, examine the value of **response** in the debugging window by clicking on View at the right-hand side of the box. Right-click and choose Copy Value; this copies this long string to the clipboard. Make sure you're doing this *after* the loop finishes, so you have all of the stuff stored in response (i.e., not where you put the breakpoint in part b).
+a. After the fetch loop completes and the program is stopped on "in.close()", examine the value of **response** in the debugging window by clicking on View at the right-hand side of the box. Right-click and choose Copy Value; this copies this long string to the clipboard. Make sure you're doing this *after* the loop finishes, so you have all of the stuff stored in response (i.e., not where you put the breakpoint in part b).
 
-b. Open a text editor and paste this string. Then search for the string used by response.indexOf() - that is, the parameter to indexOf().
+b. Open a text editor (TextEdit on Mac or Notepad on Windows) and paste this string. Then search for the string used by response.indexOf() - that is, the parameter to indexOf(), not indexOf.
 
 c. Copy the string into a new browser tab to confirm that it is a picture url.
 
