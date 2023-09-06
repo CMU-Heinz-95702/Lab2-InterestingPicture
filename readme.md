@@ -75,7 +75,7 @@ c. Copy the string into a new browser tab to confirm that it is a picture url.
 
 a. In the result.jsp file, if the search word from Flickr is "Andy", then do not display the Flickr image. Instead, display the following image of Andrew Carnegie ten times:
 
-https://en.wikipedia.org/wiki/Andrew_Carnegie#/media/File:Andrew_Carnegie,_three-quarter_length_portrait,_seated,_facing_slightly_left,_1913-cropped(b).jpg
+https://en.wikipedia.org/wiki/Andrew_Carnegie#/media/File:Andrew_Carnegie,_by_Theodore_Marceau.jpg
 
 You *must* use an embedded Java loop for this part; do not simply replicate the image ten times.
 
