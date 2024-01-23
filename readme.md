@@ -1,7 +1,7 @@
 # 95-702 Distributed Systems    				
 # Lab 2 – Interesting Picture
 
-The 1/4 point checkpoint is due to your specific TA before the end of the lab session. The 3/4 point checkpoint can be shown to any TA, due before lecture on Monday: 2:00 PM EST 11-Sept-20223. See the two checkered flags below to see what needs to be submitted.
+The 1/4 point checkpoint is due to your specific TA before the end of the lab session. The 3/4 point checkpoint can be shown to any TA, due before lecture on Monday at 2:00 PM. See the two checkered flags below to see what needs to be submitted.
 
 ## Part 1
 
@@ -11,13 +11,45 @@ Review the directions for installing the Hello World web app using TomEE10, Jaka
 
 ### 2. Get the InterestingPicture web app working
 
-a. Watch the Video, Interesting Picture for Lab 2, on Canvas.
+a. Watch the Video, Interesting Picture for Lab 2, on Canvas. Note that the versions used in the video may be older than the ones you'll use.
 
 b. Download the files InterestingPictureModel.java, InterestingPictureServlet.java, prompt.jsp, response.jsp, and web.xml (see below for where to copy these files into) from:
 
 https://github.com/CMU-Heinz-95702/Lab2-InterestingPicture
 
-c. Create a new web project in IntelliJ named InterestingPicture. If necessary, change the directory to put this project in a folder of your choosing. The project should be a Jakarata EE (formerly Java Enterprise Web) application project using TomEE 9 (note that it might show up as v. 10) using JDK 17 (or higher, if that's what you've installed), Java (not Kotlin or Groovy), Maven, and JUnit (which won't be needed); change the Group to ds (that's the package name); the name of the Artifact should be "InterestingPicture". Make sure to choose Jakarta EE 10 (*not* Java EE 8) and Servlet 6.0.0. The Jakarta choice is easy to miss; it may default to Java EE 8; failing to get this setting correct will cause the application to fail when you run it, so get this right!
+c. The steps below are similar to what you did in Lab 1; refer to the directions there if necessary.
+
+(1) Choose File->New->project.
+
+(2) On the left tab, choose Jakarta EE from the Generators.
+
+(3) The Name is InterestingPicture.
+
+(4) Choose a location for the project.
+
+(5) The Template must be Web Application (it will probably default to REST service; do not use that!).
+
+(6) Application server: TomEE10.
+
+(7) Language: Java.
+
+(8) Build system: Maven (you may have used Gradle for other Java projects, but we'll be using Maven for most things in DS).
+
+(9) Group: ds
+
+(10) Artifact: InterestingPicture (probably auto-filled with the Name).
+
+(11) JDK: version 17 or higher. The drop-down menu may show other versions if you have them installed. Do not use version 8.
+
+(12) Click Next
+
+(13) Version: Jakarta
+
+(14) Dependencies: Servlet (5.0.0)
+
+(15) Click Create.
+
+Later, if something goes wrong with the build, you can check these settings by clicking File -> Project Structure.The Libraries tab should have Maven information; the SDK should be JDK17 - I've seen this one fail even after carefully setting up the project.
 
 d. Expand (in the Project window) src -> main -> java. Delete the HelloServlet.java file (right-click and choose Delete); also delete the ds.InterestingPicture package. Right-click on java and choose New->Package to create package ds. Then copy InterestingPictureModel.java and InterestingPictureServlet.java (from a Finder or FileExplorer window) and paste into package ds (right-click on ds and choose Paste).
 
@@ -45,9 +77,9 @@ b. On the Run menu, choose Debug (or click the green bug next to the arrow) - do
 
 c. In the browser, enter the word zzzz8888 in the search box and click Submit.
 
-d. In the IntelliJ debugging variables window, confirm that the value of searchTag is what you typed in the browser, zzzz8888.
+d. In the IntelliJ Debugger window, confirm that the value of searchTag is what you typed in the browser, zzzz8888.
 
-e. Right-click on that value and choose View/Edit Text. Copy this word without the quotes: "peach". In the View/Edit box, highlight the value of searchTag and copy in"peach", then click OK.
+e. Right-click on that value and choose View/Edit Text. Copy this word without the quotes: "peach". In the View/Edit box, highlight the value of searchTag and copy in"peach", then click Set.
 
 f. On the Run menu, choose Debugging Actions, and Resume Program
 
