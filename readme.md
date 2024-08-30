@@ -7,7 +7,7 @@ The 1/4 point checkpoint is due to your specific TA before the end of the lab se
 
 ### 1. Review the Hello World web app, make sure it's working
 
-Review the directions for installing the Hello World web app using TomEE10, Jakarta, and Java17 from Lab 1. Those directions are repeated in abbreviated form below.
+Review the directions for installing the Hello World web app using TomEE10, Jakarta, and Java21 from Lab 1. Those directions are repeated in abbreviated form below.
 
 ### 2. Get the InterestingPicture web app working
 
@@ -39,19 +39,19 @@ c. The steps below are similar to what you did in Lab 1; refer to the directions
 
 (10) Artifact: InterestingPicture (probably auto-filled with the Name).
 
-(11) JDK: version 17 or higher. The drop-down menu may show other versions if you have them installed. Do not use version 8.
+(11) JDK: version 21. The drop-down menu may show other versions if you have them installed. Do not use version 8.
 
 (12) Click Next
 
-(13) Version: Jakarta
+(13) Version: Jakarta11
 
-(14) Dependencies: Servlet (5.0.0)
+(14) Dependencies: Servlet (6.1)
 
 (15) Click Create.
 
-Later, if something goes wrong with the build, you can check these settings by clicking File -> Project Structure.The Libraries tab should have Maven information; the SDK should be JDK17 - I've seen this one fail even after carefully setting up the project.
+Later, if something goes wrong with the build, you can check these settings by clicking File -> Project Structure.The Libraries tab should have Maven information; the SDK should be JDK21 - I've seen this one fail even after carefully setting up the project.
 
-d. Expand (in the Project window) src -> main -> java. Delete the HelloServlet.java file (right-click and choose Delete); also delete the ds.InterestingPicture package. Right-click on java and choose New->Package to create package ds. Then copy InterestingPictureModel.java and InterestingPictureServlet.java (from a Finder or FileExplorer window) and paste into package ds (right-click on ds and choose Paste).
+d. Expand (in the Project window) src -> main -> java. Delete the HelloServlet.java file (right-click and choose Delete); also delete the ds.InterestingPicture package or any other sub-package that's showing. If needed, right-click on java and choose New->Package to create package ds. Then copy InterestingPictureModel.java and InterestingPictureServlet.java (from a Finder or FileExplorer window) and paste into package ds (right-click on ds and choose Paste).
 
 e. Similarly, copy prompt.jsp and result.jsp into the webapp folder, and web.xml into the WEB-INF folder (choose "overwrite" because there's already a web.xml file there). Delete the index.jsp file from the webapp folder.
 
@@ -59,11 +59,13 @@ f. Choose the Run-Edit Configurations. Make sure TomEE 10 is showing. Click the 
 
 /InterestingPicture-1.0-SNAPSHOT
 
-into the Application Context text field. Click Apply and OK. Finally, on the green triangle or choose Run/Run to build and run the program.
+into the Application Context text field. Click Apply and OK.
 
-g. Make sure the app displays a prompt; choose a noun (like "cat"), click "Click Here", and ensure that a picture of a cat is displayed.
+g. Click on the green triangle or choose Run/Run to build and run the program.
 
-h. Try out a few other search terms. When finished, click the red square at the top right to quit the program.
+h. Make sure the app displays a prompt; choose a noun (like "cat"), click "Click Here", and ensure that a picture of a cat is displayed.
+
+i. Try out a few other search terms. When finished, click the red square at the top right to quit the program.
 
 ### :checkered_flag: **Checkpoint: show the working InterestingPicture web app to your TA.**
 
