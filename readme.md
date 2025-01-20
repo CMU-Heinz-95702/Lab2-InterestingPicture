@@ -1,25 +1,29 @@
 # 95-702 Distributed Systems    				
 # Lab 2 – Interesting Picture
 
-The 1/4 point checkpoint is due to your specific TA before the end of the lab session. The 3/4 point checkpoint can be shown to any TA, due before lecture on Monday at 2:00 PM. See the two checkered flags below to see what needs to be submitted.
+This lab illustrates how to set up a web servlet using TomEE and Java Server Pages. The application, called Interesting Picture, takes a search term from the user in a browser window, looks up the term on Flickr, and displays a picture of that input (if possible). For example, if the user enters "cat", then a picture of a cat will be displayed.
 
-## Part 1
+Complete Lab2_Quiz on Canvas as you work on this lab. See the checkered flags for references to the quiz questions.
+
+## Tasks
 
 ### 1. Review the Hello World web app, make sure it's working
 
 Review the directions for installing the Hello World web app using TomEE10, Jakarta, and Java21 from Lab 1. Those directions are repeated in abbreviated form below.
 
+### NOTE: Make sure that you stop the Lab 1 web application. Both labs are set up to use port 8080 but only one can use it at a time
+
 ### 2. Get the InterestingPicture web app working
 
-a. Watch the Video, Interesting Picture for Lab 2, on Canvas. Note that the versions used in the video may be older than the ones you'll use.
+a. Watch the Video, Interesting Picture for Lab 2, on Canvas. Note that the versions used in the video may be older than the ones you'll use; the versions of TomEE and the Java JDK that you used in Lab 1 should be used.
 
-b. Download the files InterestingPictureModel.java, InterestingPictureServlet.java, prompt.jsp, response.jsp, and web.xml (see below for where to copy these files into) from:
+b. Download the files InterestingPictureModel.java, InterestingPictureServlet.java, prompt.jsp, response.jsp, and web.xml from the same site you're reading this on:
 
 https://github.com/CMU-Heinz-95702/Lab2-InterestingPicture
 
 c. The steps below are similar to what you did in Lab 1; refer to the directions there if necessary.
 
-(1) Choose File->New->project.
+(1) Choose File->New->Project.
 
 (2) On the left tab, choose Jakarta EE from the Generators.
 
@@ -39,7 +43,7 @@ c. The steps below are similar to what you did in Lab 1; refer to the directions
 
 (10) Artifact: InterestingPicture (probably auto-filled with the Name).
 
-(11) JDK: version 21. The drop-down menu may show other versions if you have them installed. Do not use version 8.
+(11) JDK: version 21 (or higher). The drop-down menu may show other versions if you have them installed. Do not use version 8, but you can use versions 17 or higher.
 
 (12) Click Next
 
@@ -57,7 +61,7 @@ e. Similarly, copy prompt.jsp and result.jsp into the webapp folder, and web.xml
 
 f. Choose the Run-Edit Configurations. Make sure TomEE 10 is showing. Click the Deployment tab; near the bottom (you may have to scroll down to see it), copy
 
-/InterestingPicture-1.0-SNAPSHOT
+**/InterestingPicture-1.0-SNAPSHOT**
 
 into the Application Context text field. Click Apply and OK.
 
@@ -67,9 +71,9 @@ h. Make sure the app displays a prompt; choose a noun (like "cat"), click "Click
 
 i. Try out a few other search terms. When finished, click the red square at the top right to quit the program.
 
-### :checkered_flag: **Checkpoint: show the working InterestingPicture web app to your TA.**
+j. Open prompt.jsp and examine the JSP code.
 
-## Part 2
+### :checkered_flag: Answer question 1 on the Canvas quiz named Lab2_Quiz.
 
 ### 3. Practice debugging – Using the debugger to explore how InterestingPicture works.
 
@@ -87,6 +91,8 @@ f. On the Run menu, choose Debugging Actions, and Resume Program
 
 g. In the browser, confirm the response from the web app has the message "Here is an interesting  picture of a zzzz8888" but shows a picture of a peach. Why did this happen?
 
+### :checkered_flag: Answer question 2 on the Canvas quiz named Lab2_Quiz.
+
 ### 4. In the model class, study how the fetch( ) method works.
 
 a. Why is a while loop used - what is the body of the loop doing?
@@ -95,14 +101,17 @@ b. Put a breakpoint in the loop and examine the value of str with each iteration
 
 c. Put a breakpoint on the line "in.close( )"; remove the breakpoint in the loop. Resume Program again.
 
+### :checkered_flag: Answer question 3 on the Canvas quiz named Lab2_Quiz.
 
 ### 5. Investigate how screen scraping works.
 
 a. After the fetch loop completes and the program is stopped on "in.close()", examine the value of **response** in the debugging window by clicking on View at the right-hand side of the box. Right-click and choose Copy Value; this copies this long string to the clipboard. Make sure you're doing this *after* the loop finishes, so you have all of the stuff stored in response (i.e., not where you put the breakpoint in part b).
 
-b. Open a text editor (TextEdit on Mac or Notepad on Windows) and paste this string. Then search for the string used by response.indexOf() - that is, the parameter to indexOf(), not indexOf.
+b. Open a text editor (TextEdit on Mac or Notepad on Windows) and paste this string. Then search for the string used by response.indexOf() - that is, the **parameter** to indexOf(), not indexOf.
 
 c. Copy the string into a new browser tab to confirm that it is a picture url.
+
+### :checkered_flag: Answer question 4 on the Canvas quiz named Lab2_Quiz.
 
 ### 6. Add an *Easter Egg* in the web app.
 (see https://en.wikipedia.org/wiki/Easter_egg_(media)#Software)
@@ -111,16 +120,18 @@ a. In the result.jsp file, if the search word from Flickr is "Andy", then do not
 
 https://upload.wikimedia.org/wikipedia/commons/0/09/Andrew_Carnegie%2C_by_Theodore_Marceau.jpg
 
-You *must* use an embedded Java loop for this part; do not simply replicate the image ten times.
+You *must* use an embedded Java loop for this part; do not simply replicate the image ten times. You can, if you want to(but not required), scale the giant Andy image to a more reasonable size.
+
+### :checkered_flag: Answer question 5 on the Canvas quiz named Lab2_Quiz.
 
 ### Note: this is not a good MVC separation of concerns, it's just an exercise in writing JSP. You should think about why that is!
 
-### :checkered_flag: **To receive full lab credit** (besides the checkpoint credit): show the following to your TA: (before Monday's lecture)
-1. HelloWorld servlet working (Step 1).
-2. Response to "Here is an interesting picture of a zzzz8888" and a picture of a peach (step 3g).
-3. Why is the loop used and what format is the str data? (steps 4a and 4b).
-4. The string in the response file that is used to create pictureURL (step5b).
-5. The working Easter Egg (step 6a).
+### Lab Summary
+1. HelloWorld servlet working (Task 2).
+2. Response to "Here is an interesting picture of a zzzz8888" and a picture of a peach (Task 3g).
+3. Why is the loop used and what format is the str data? (Task 4).
+4. The string in the response file that is used to create pictureURL (Task 5).
+5. The working Easter Egg (Task 6).
 
 # Lab versus Project Collaboration Rules
 ## Lab Rules:
