@@ -77,7 +77,7 @@ j. Open prompt.jsp and examine the JSP code.
 
 ### 3. Practice debugging – Using the debugger to explore how InterestingPicture works.
 
-a. Put a breakpoint at the InterestingPictureModel::doFlickrSearch method before the searchTag is encoded at line 40 (click in the margin next to 40 - a red dot should appear).
+a. Put a breakpoint at the InterestingPictureModel.doFlickrSearch() method before the searchTag is encoded at line 40 (click in the margin next to 40 - a red dot should appear).
 
 b. On the Run menu, choose Debug (or click the green bug next to the arrow) - don't use the green triangle: run in Debug mode so that it stops at line 40.
 
@@ -91,21 +91,23 @@ f. On the Run menu, choose Debugging Actions, and Resume Program
 
 g. In the browser, confirm the response from the web app has the message "Here is an interesting  picture of a zzzz8888" but shows a picture of a peach. Why did this happen?
 
+h. After you get the above to work, you can remove the breakpoint.
+
 ### :checkered_flag: Answer question 2 on the Canvas quiz named Lab2_Quiz.
 
 ### 4. In the model class, study how the fetch( ) method works.
 
 a. Why is a while loop used - what is the body of the loop doing?
 
-b. Put a breakpoint in the loop and examine the value of str with each iteration (use the Resume Program choice again, several times). What is the format of the information you are seeing?
+b. Put a breakpoint inside the while loop and examine the value of str with each iteration (use the Resume Program choice again, several times). What is the format of the information you are seeing?
 
-c. Put a breakpoint on the line "in.close( )"; remove the breakpoint in the loop. Resume Program again.
+c. Put a breakpoint on the line "in.close( )"; remove the breakpoint in the loop. Resume Program again - that is, let the loop run to conclusion.
 
 ### :checkered_flag: Answer question 3 on the Canvas quiz named Lab2_Quiz.
 
 ### 5. Investigate how screen scraping works.
 
-a. After the fetch loop completes and the program is stopped on "in.close()", examine the value of **response** in the debugging window by clicking on View at the right-hand side of the box. Right-click and choose Copy Value; this copies this long string to the clipboard. Make sure you're doing this *after* the loop finishes, so you have all of the stuff stored in response (i.e., not where you put the breakpoint in part b).
+a. After the fetch loop completes and the program is stopped on "in.close()", examine the value of **response** in the debugging window by clicking on View at the right-hand side of the box. Right-click and choose Copy Value; this copies this long string to the clipboard. Make sure you're doing this *after* the loop finishes, so you have all of the stuff stored in response (i.e., not where you put the breakpoint in part 4b).
 
 b. Open a text editor (TextEdit on Mac or Notepad on Windows) and paste this string. Then search for the string used by response.indexOf() - that is, the **parameter** to indexOf(), not indexOf.
 
