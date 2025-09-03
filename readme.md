@@ -13,7 +13,7 @@ Review the directions for installing the Hello World web app using TomEE10, Jaka
 
 a. Watch the Video, Interesting Picture for Lab 2, on Canvas. Note that the versions used in the video may be older than the ones you'll use - use the same versions that you used in Lab 1.
 
-b. Download the files InterestingPictureModel.java, InterestingPictureServlet.java, prompt.jsp, response.jsp, and web.xml (see below for where to copy these files into) from:
+b. Download the files InterestingPictureModel.java, InterestingPictureServlet.java, prompt.jsp, result.jsp, and web.xml (see below for where to copy these files into) from:
 
 https://github.com/CMU-Heinz-95702/Lab2-InterestingPicture
 
